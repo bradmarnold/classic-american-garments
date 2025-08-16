@@ -1,48 +1,80 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  margin: 0;
-  padding: 0;
+/* --------- Heritage-blog look: readable, calm, image-forward --------- */
+
+:root{
+  --bg:#faf9f7;
+  --ink:#1f2a33;
+  --muted:#5f6c76;
+  --line:#e9e4de;
+  --accent:#1d4d79;
+  --accent-ink:#eef6ff;
+  --code:#f4efe9;
 }
 
-header {
-  background-color: #003366;
-  color: #ffffff;
-  padding: 20px;
-  text-align: center;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:var(--bg);
+  font: 17px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
 
-nav {
-  background-color: #004080;
-  padding: 10px;
-  text-align: center;
+.wrap{max-width:72ch; padding:0 20px; margin:0 auto}
+
+/* Header / nav */
+.site-header{border-bottom:1px solid var(--line); background:#fff}
+.site-header .wrap{display:flex; align-items:center; gap:16px; padding:14px 20px}
+.brand{font-weight:700; color:var(--ink); text-decoration:none}
+.site-nav a{
+  color:var(--muted); text-decoration:none; margin-left:14px; padding:6px 8px; border-radius:6px
+}
+.site-nav a[aria-current], .site-nav a:hover{background:var(--accent); color:#fff}
+
+/* Article */
+.article{padding-block:32px}
+.article-header h1{font-size:clamp(28px, 3.5vw, 42px); line-height:1.15; margin:6px 0 10px}
+.dek{color:var(--muted); margin:0 0 14px}
+.lead p:first-child::first-letter{
+  float:left; font-size:3.2rem; line-height:0.9; padding-right:8px; padding-top:6px; font-weight:700; color:var(--accent);
+}
+h2{
+  margin:28px 0 10px; padding-top:12px; border-top:2px solid var(--line);
+  font-size:clamp(20px, 2.2vw, 26px);
+}
+p{margin:12px 0}
+.muted{color:var(--muted)}
+
+/* Lists and special blocks */
+.scenes, .materials, .timeline, .howto{padding-left:18px}
+.scenes li, .materials li, .timeline li, .howto li{margin:6px 0}
+.callout{
+  border:1px solid var(--line); background:#fff; padding:14px 16px; border-radius:10px; margin:18px 0;
 }
 
-nav a {
-  color: #ffffff;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: bold;
+/* Anatomy definition list */
+.anatomy{margin:10px 0}
+.anatomy dt{
+  font-weight:700; margin-top:14px
+}
+.anatomy dd{
+  margin:6px 0 10px 0; color:var(--muted)
 }
 
-nav a:hover {
-  text-decoration: underline;
+/* Figures */
+figure{margin:18px 0}
+.hero img{
+  width:100%; height:auto; display:block; border-radius:10px; border:1px solid var(--line);
+  box-shadow: 0 10px 24px rgba(0,0,0,.05);
+}
+figcaption{
+  font-size:.9rem; color:var(--muted); margin-top:8px
 }
 
-main {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
+/* Footer */
+.site-footer{border-top:1px solid var(--line); color:var(--muted); padding:20px 0; margin-top:40px}
 
-footer {
-  background-color: #003366;
-  color: #ffffff;
-  text-align: center;
-  padding: 10px;
-  margin-top: 20px;
-}
+/* Links */
+a{color:var(--accent)}
+a:hover{opacity:.9}
